@@ -1,5 +1,5 @@
-## Put comments here that give an overall description of what your
-## functions do
+## These two functions work in conjunction to compute the inverse of a matrix, and also check if this inverse has already been computed
+## this saves time and resources.
 
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -16,7 +16,6 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
@@ -32,3 +31,11 @@ cacheSolve <- function(x, ...) {
   m
   
 }
+
+## Here is a test of the function::
+
+ funs <- makeCacheMatrix() ## create the object to be analyzed for inversion (including the original matrix)
+ funs$set(matrix(6:9, 2)) ## this is the matrix to be inverted.
+ funs$setinverse()
+ funs$getinverse() ## here we have the inversion
+ ls(environment(funs$set)) ## here we can see all the objects inside the funs object.(we have set, get, setinverse, and getinverse, m, and x
